@@ -9,7 +9,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV LANG C.UTF-8
 
 # Install requirements for add-on
-RUN apk update && apk add --no-cache bash jq iw hostapd networkmanager net-tools sudo dhcp3-server isc-dhcp-server && rm -rf /var/cache/apk/*
+RUN apk update && apk add --no-cache bash jq iw hostapd networkmanager net-tools sudo isc-dhcp-server && rm -rf /var/cache/apk/*
 
 
 COPY hostapd.conf /
