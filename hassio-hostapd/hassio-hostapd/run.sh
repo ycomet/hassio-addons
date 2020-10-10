@@ -53,6 +53,8 @@ echo "    option time-offset 0;" >> /etc/dhcp/dhcpd.conf
 echo "    range 192.168.99.3, 192.168.99.253;" >> /etc/dhcp/dhcpd.conf
 echo "}" >> /etc/dhcp/dhcpd.conf
 
+/etc/init.d/dhcp start
+
 # Setup interface
 echo "Setup interface ..."
 
