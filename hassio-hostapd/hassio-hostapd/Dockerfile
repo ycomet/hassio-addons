@@ -13,7 +13,7 @@ RUN apk update && apk add --no-cache bash jq iw hostapd networkmanager net-tools
 
 
 COPY hostapd.conf /
-COPY dhcpd.conf /
+COPY dhcpd.conf /etc/dhcp/dhcpd.conf
 COPY interfaces /etc/network/interfaces
 COPY run.sh /
 RUN chmod a+x /run.sh
