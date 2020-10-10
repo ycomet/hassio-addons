@@ -47,14 +47,15 @@ echo "channel=$CHANNEL"$'\n' >> /hostapd.conf
 
 # Setup dhcpd.conf
 echo "Setup dhcpd ..."
-echo "192.168.99.0 netmask 255.255.255.0 {" >> /etc/dhcp/dhcpd.conf
+echo "subnet 192.168.99.0 netmask 255.255.255.0 {" >> /etc/dhcp/dhcpd.conf
 echo "    option broadcast-address 192.168.99.254;" >> /etc/dhcp/dhcpd.conf
 echo "    option subnet-mask 255.255.255.0;" >> /etc/dhcp/dhcpd.conf
 echo "    option time-offset 0;" >> /etc/dhcp/dhcpd.conf
 echo "    range 192.168.99.3, 192.168.99.253;" >> /etc/dhcp/dhcpd.conf
 echo "}" >> /etc/dhcp/dhcpd.conf
 
-/etc/init.d/dhcp start
+echo "Starting dhcpd ..."
+/usr/sbin/dhcpd -4 -f -d --no-pid -cf /etc/dhcp/dhcpd.conf &
 
 # Setup interface
 echo "Setup interface ..."
