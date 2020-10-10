@@ -46,6 +46,7 @@ echo "wpa_passphrase=$WPA_PASSPHRASE"$'\n' >> /hostapd.conf
 echo "channel=$CHANNEL"$'\n' >> /hostapd.conf
 
 # Setup dhcpd.conf
+echo "Setup dhcpd ..."
 echo "192.168.99.0 netmask 255.255.255.0 {" >> /etc/dhcp/dhcpd.conf
 echo "    option broadcast-address 192.168.99.254;" >> /etc/dhcp/dhcpd.conf
 echo "    option subnet-mask 255.255.255.0;" >> /etc/dhcp/dhcpd.conf
