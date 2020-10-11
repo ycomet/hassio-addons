@@ -25,6 +25,9 @@ CHANNEL=$(jq --raw-output ".channel" $CONFIG_PATH)
 ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
 NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
 BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
+SUBNET=$(jq --raw-output ".subnet" $CONFIG_PATH)
+RANGE_START=$(jq --raw-output ".range_start" $CONFIG_PATH)
+RANGE_END=$(jq --raw-output ".range_end" $CONFIG_PATH)
 
 # Enforces required env variables
 required_vars=(SSID WPA_PASSPHRASE CHANNEL ADDRESS NETMASK BROADCAST)
@@ -47,11 +50,11 @@ echo "channel=$CHANNEL"$'\n' >> /hostapd.conf
 
 # Setup dhcpd.conf
 echo "Setup dhcpd ..."
-echo "subnet 192.168.99.0 netmask 255.255.255.0 {" >> /etc/dhcp/dhcpd.conf
-echo "    option broadcast-address 192.168.99.254;" >> /etc/dhcp/dhcpd.conf
-echo "    option subnet-mask 255.255.255.0;" >> /etc/dhcp/dhcpd.conf
+echo "subnet $SUBNET netmask $NETMASK {" >> /etc/dhcp/dhcpd.conf
+echo "    option broadcast-address $BROADCAST;" >> /etc/dhcp/dhcpd.conf
+echo "    option subnet-mask $NETMASK;" >> /etc/dhcp/dhcpd.conf
 echo "    option time-offset 0;" >> /etc/dhcp/dhcpd.conf
-echo "    range 192.168.99.3, 192.168.99.253;" >> /etc/dhcp/dhcpd.conf
+echo "    range $RANGE_START $RANGE_END;" >> /etc/dhcp/dhcpd.conf
 echo "}" >> /etc/dhcp/dhcpd.conf
 
 echo "Starting dhcpd ..."
