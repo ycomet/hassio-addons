@@ -24,9 +24,9 @@ The available configuration options are as follows (this is filled in with some 
     "ssid": "WIFI_NAME",
     "wpa_passphrase": "WIFI_PASSWORD",
     "channel": "6",
-    "address": "192.168.99.1",
-    "netmask": "255.255.255.0",
-    "broadcast": "192.168.99.254",
+    "address": "172.16.1.1",
+    "netmask": "255.255.0.0",
+    "broadcast": "172.16.255.255",
     "subnet": "172.16.0.0",
     "range_start": "172.16.1.2",
     "range_end": "172.16.254.254"
