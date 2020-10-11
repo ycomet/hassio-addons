@@ -51,10 +51,10 @@ echo "channel=$CHANNEL"$'\n' >> /hostapd.conf
 # Setup dhcpd.conf
 echo "Setup dhcpd with details: SUBNET: $SUBNET, NETMASK=$NETMASK, RANGE_START=$RANGE_START, RANGE_END=$RANGE_END"
 echo "subnet $SUBNET netmask $NETMASK {" >> /etc/dhcp/dhcpd.conf
-echo "    option broadcast-address $BROADCAST;" >> /etc/dhcp/dhcpd.conf
-echo "    option subnet-mask $NETMASK;" >> /etc/dhcp/dhcpd.conf
-echo "    option time-offset 0;" >> /etc/dhcp/dhcpd.conf
-echo "    range $RANGE_START $RANGE_END;" >> /etc/dhcp/dhcpd.conf
+echo "    option broadcast-address $BROADCAST ;" >> /etc/dhcp/dhcpd.conf
+echo "    option subnet-mask $NETMASK ;" >> /etc/dhcp/dhcpd.conf
+echo "    option time-offset 0 ;" >> /etc/dhcp/dhcpd.conf
+echo "    range $RANGE_START $RANGE_END ;" >> /etc/dhcp/dhcpd.conf
 echo "}" >> /etc/dhcp/dhcpd.conf
 
 echo "Starting dhcpd ..."
