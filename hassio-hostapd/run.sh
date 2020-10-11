@@ -57,6 +57,8 @@ echo "    option time-offset 0 ;" >> /etc/dhcp/dhcpd.conf
 echo "    range $RANGE_START $RANGE_END ;" >> /etc/dhcp/dhcpd.conf
 echo "}" >> /etc/dhcp/dhcpd.conf
 
+touch /var/lib/dhcp/dhcpd.leases
+
 echo "Starting dhcpd ..."
 /usr/sbin/dhcpd -4 -f -d --no-pid -cf /etc/dhcp/dhcpd.conf &
 
