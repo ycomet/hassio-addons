@@ -45,6 +45,9 @@
     "channel": "int",
     "address": "str",
     "netmask": "str",
-    "broadcast": "str"
+    "broadcast": "str",
+    "subnet": "str",
+    "range_start": "str",
+    "range_end": "str"
   }
 } 
